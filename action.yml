@@ -1,0 +1,40 @@
+name: 'ms-teams-notify'
+description: 'Send Cards to MS Teams Chats via Webhook'
+inputs:
+  webhook_url:
+    description: 'Webhook URL'
+    required: true
+    default: 'localhost'
+  summary:
+    description: 'Summary of Message'
+    required: true
+    default: 'Summary'
+  title:
+      description: 'Title of Message'
+      required: true
+      default: 'Title'
+  subtitle:
+      description: 'SubTitle of Message'
+      required: true
+      default: 'Sub-Title'        
+  image:
+      description: 'URL or image'
+      required: false
+      default: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'      
+  date:
+      description: 'Current Date and Time'
+      required: true
+      default: 'Now'
+  status:
+      description: 'Status To be Shared ( success / failure )'
+      required: true
+      default: 'Now'
+  
+  github-run-link:
+      description: 'Link to current GH Action Run'
+      required: true
+      default: 'https://github.com'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

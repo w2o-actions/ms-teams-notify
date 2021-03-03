@@ -1,0 +1,24 @@
+{
+  "name": "ms-teams-notify",
+  "version": "0.0.1",
+  "description": "Send Cards via webhooks to MS teams",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build index.js --license licenses.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w2o-actions/ms-teams-notify.git"
+  },
+  "author": "Christopher Miller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/w2o-actions/ms-teams-notify/issues"
+  },
+  "homepage": "https://github.com/w2o-actions/ms-teams-notify#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "axios": "^0.21.1"
+  }
+}
