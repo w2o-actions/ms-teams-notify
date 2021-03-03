@@ -21,10 +21,6 @@ inputs:
       description: 'URL or image'
       required: false
       default: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'      
-  date:
-      description: 'Current Date and Time'
-      required: true
-      default: 'Now'
   status:
       description: 'Status To be Shared ( success / failure )'
       required: true
@@ -38,3 +34,5 @@ inputs:
 runs:
   using: 'node12'
   main: 'dist/index.js'
+
+
