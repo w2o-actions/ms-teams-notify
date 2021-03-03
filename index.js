@@ -7,6 +7,7 @@ const summary         = core.getInput('summary');
 const title           = core.getInput('title');
 const subtitle        = core.getInput('subtitle');
 const image           = core.getInput('image');
+const date            = core.getInput('date');
 const status          = core.getInput('status');
 const github_run_link = core.getInput('github-run-link');
 
@@ -15,7 +16,8 @@ const red = 'c20000';
 const green = '00b825';
 let color = green;
 async function postMessage() {
-    try {    
+    try {
+      console.log(status);
       if(status!="success"){
         color = red;
       }
@@ -24,7 +26,7 @@ async function postMessage() {
           "@type": "MessageCard",
           "@context": "http://schema.org/extensions",
           "themeColor": color,
-          "summary": summary,
+          "text": summary,
           "sections": [{
               "activityTitle": title,
               "activitySubtitle": subtitle,

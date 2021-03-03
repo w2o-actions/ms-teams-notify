@@ -26,15 +26,14 @@ const date            = core.getInput('date');
 const status          = core.getInput('status');
 const github_run_link = core.getInput('github-run-link');
 
+let now = new Date().toISOString();
 const red = 'c20000';
 const green = '00b825';
-
+let color = green;
 async function postMessage() {
     try {
-      if(status="success"){
-        color = green;
-      }
-      else{
+      console.log(status);
+      if(status!="success"){
         color = red;
       }
       const response = await axios.post(url,
@@ -42,14 +41,14 @@ async function postMessage() {
           "@type": "MessageCard",
           "@context": "http://schema.org/extensions",
           "themeColor": color,
-          "summary": summary,
+          "text": summary,
           "sections": [{
               "activityTitle": title,
               "activitySubtitle": subtitle,
               "activityImage": image,
               "facts": [{
                   "name": "Date",
-                  "value": date
+                  "value": now
               }, {
                   "name": "Status",
                   "value": status
@@ -58,7 +57,7 @@ async function postMessage() {
           }],
           "potentialAction": [{
               "@type": "OpenUri",
-              "name": "See in GitHub",
+              "name": "View in GitHub",
               "targets": [{
                   "os": "default",
                   "uri": github_run_link
@@ -73,6 +72,8 @@ async function postMessage() {
       console.error(error);
     }
   }
+
+  postMessage();
 
 /***/ }),
 
